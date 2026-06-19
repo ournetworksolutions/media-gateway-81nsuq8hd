@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jellyfin</title>
     <meta name="robots" content="noindex, nofollow">
-
+    <title>Jellyfin</title>
+    
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
@@ -13,11 +13,10 @@
         @import url('css2.css');
 
         :root {
-            /* Exact Seerr Color Palette */
             --bg-main: #171722;
             --bg-card: #252535;
             --bg-navbar: #111119;
-            --accent-primary: #6366f1; /* Seerr Indigo */
+            --accent-primary: #6366f1; 
             --accent-hover: #4f46e5;
             --text-main: #ffffff;
             --text-muted: #9ca3af;
@@ -38,7 +37,6 @@
             min-height: 100vh;
         }
 
-        /* Seerr-style Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -53,12 +51,32 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .logo {
-            height: 30px;
-            opacity: 0.9;
+        .logo { height: 30px; opacity: 0.9; }
+
+        /* Network Toggle Switch */
+        .network-toggle {
+            display: flex;
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 4px;
+            border: 1px solid var(--border-strong);
+        }
+        .network-toggle button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .network-toggle button.active {
+            background-color: var(--accent-primary);
+            color: white;
         }
 
-        /* Hero Section (Backdrop style) */
         header {
             min-height: 80vh;
             display: flex;
@@ -66,132 +84,59 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Simulates a Seerr movie backdrop with a gradient fade */
             background: linear-gradient(to top, var(--bg-main) 0%, rgba(23, 23, 34, 0.4) 100%), 
                         radial-gradient(circle at center, #2a2a3d 0%, var(--bg-main) 70%);
             padding: 80px 20px 40px 20px;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
+        h1 { font-size: 3rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
 
         .subtitle {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 32px;
-            line-height: 1.5;
+            font-size: 1.125rem; color: var(--text-muted); max-width: 600px; margin-bottom: 32px; line-height: 1.5;
         }
 
-        /* Seerr-style Buttons */
         .btn-primary {
-            background-color: var(--accent-primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: background-color 0.2s ease;
-            display: inline-block;
-            cursor: pointer;
-            border: none;
+            background-color: var(--accent-primary); color: white; padding: 12px 24px;
+            border-radius: var(--radius-md); text-decoration: none; font-weight: 500;
+            font-size: 1rem; transition: background-color 0.2s ease; display: inline-block;
+            cursor: pointer; border: none;
         }
 
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
+        .btn-primary:hover { background-color: var(--accent-hover); }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-strong);
-            padding: 12px 24px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            display: inline-block;
-            cursor: pointer;
+            background-color: transparent; color: var(--text-main); border: 1px solid var(--border-strong);
+            padding: 12px 24px; border-radius: var(--radius-md); text-decoration: none;
+            font-weight: 500; font-size: 1rem; transition: all 0.2s ease; display: inline-block; cursor: pointer;
         }
 
-        .btn-secondary:hover {
-            background-color: var(--border-light);
-            border-color: var(--text-muted);
-        }
+        .btn-secondary:hover { background-color: var(--border-light); border-color: var(--text-muted); }
 
-        /* Content Sections (Centered) */
         .section {
-            padding: 80px 5%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 80px 5%; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; max-width: 800px; margin: 0 auto;
         }
 
-        .text-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .text-content { display: flex; flex-direction: column; align-items: center; }
+        .text-content h2 { font-size: 2rem; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .text-content p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
 
-        .text-content h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .text-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        /* Guest Badge styling matching Seerr's tags */
         .guest-badge {
-            background-color: #374151; /* Tailwind gray-700 */
-            color: var(--text-main);
-            padding: 6px 12px;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: inline-block;
-            margin-bottom: 24px;
-            border: 1px solid var(--border-strong);
+            background-color: #374151; color: var(--text-main); padding: 6px 12px;
+            border-radius: 9999px; font-size: 0.875rem; font-weight: 500;
+            display: inline-block; margin-bottom: 24px; border: 1px solid var(--border-strong);
         }
+        .guest-badge span { color: var(--accent-primary); }
 
-        .guest-badge span {
-            color: var(--accent-primary);
-        }
-
-        /* Footer */
         footer {
-            text-align: center;
-            padding: 32px;
-            background-color: var(--bg-navbar);
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            border-top: 1px solid var(--border-light);
-            margin-top: auto;
+            text-align: center; padding: 32px; background-color: var(--bg-navbar);
+            color: var(--text-muted); font-size: 0.875rem; border-top: 1px solid var(--border-light); margin-top: auto;
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 768px) {
             h1 { font-size: 2.25rem; }
-            .section {
-                padding: 60px 5%;
-            }
-            nav { padding: 16px 5%; width: 90%; }
+            .section { padding: 60px 5%; }
+            nav { padding: 16px 5%; width: 90%; flex-direction: column; gap: 16px;}
         }
     </style>
 </head>
@@ -199,6 +144,11 @@
 
     <nav>
         <img class="logo" src="banner-light.b113d4d1c6c07fcb73f0.png" alt="Logo">
+        
+        <div class="network-toggle">
+            <button id="mode-dns" class="active">VPN (DNS)</button>
+            <button id="mode-ip">Local (IP)</button>
+        </div>
     </nav>
 
     <header>
@@ -246,73 +196,63 @@
                 document.getElementById("hero-subtitle").textContent = "Το απόλυτο οικοσύστημα πολυμέσων. Ζητήστε νέο περιεχόμενο άμεσα, ή ξεκινήστε την προβολή από την υπάρχουσα βιβλιοθήκη υψηλής ευκρίνειας.";
                 document.getElementById("hero-btn-watch").textContent = "Παρακολουθήστε Τώρα";
                 document.getElementById("hero-btn-request").textContent = "Ζητήστε Περιεχόμενο";
-
                 document.getElementById("sec1-title").textContent = "Βιβλιοθήκη Πολυμέσων";
                 document.getElementById("sec1-text").textContent = "Αποκτήστε πρόσβαση σε ολόκληρο τον κατάλογο ταινιών και σειρών. Απολαύστε αναπαραγωγή υψηλής ποιότητας σε όλες τις συσκευές σας, χωρίς διαφημίσεις.";
                 document.getElementById("btn-source2").textContent = "Άνοιγμα Βιβλιοθήκης";
-
                 document.getElementById("sec2-title").textContent = "Ζητήστε Περιεχόμενο";
                 document.getElementById("sec2-text").textContent = "Δεν βρίσκετε αυτό που ψάχνετε; Χρησιμοποιήστε την αυτοματοποιημένη μηχανή αναζήτησης για να ζητήσετε οποιαδήποτε ταινία ή σειρά. Θα προστεθεί αυτόματα στην βιβλιοθήκη.";
                 document.getElementById("guest-badge-text").innerHTML = "Χρήστης: <span>guest</span> / Κωδικός: <span>Κενός</span>";
                 document.getElementById("btn-discover").textContent = "Άνοιγμα Αναζήτησης";
-
                 document.getElementById("footer-text").innerHTML = "&copy; 2026 Our Network Solutions. Με την επιφύλαξη παντός δικαιώματος.";
+                
+                // Translate the new toggle buttons
+                document.getElementById("mode-dns").textContent = "Απομακρυσμένα (DNS)";
+                document.getElementById("mode-ip").textContent = "Τοπικά (IP)";
             }
 
             // --- CONFIGURATION ---
-            // UPDATE THESE IP ADDRESSES TO MATCH YOUR LOCAL SERVER!
             const jellyfinDns = 'http://jellyfin.source2.vlan20';
-            const jellyfinIp = 'http://100.110.43.104:8096'; 
+            const jellyfinIp = 'http://192.168.1.100:8096'; 
 
             const seerrDns = 'http://seerr.source2.vlan10';
-            const seerrIp = 'http://100.112.131.61:5055';     
+            const seerrIp = 'http://192.168.1.100:5055';     
 
             const src2 = document.getElementById("btn-source2");
             const discover = document.getElementById("btn-discover");
 
-            // Attach the smart redirect to the buttons
-            src2.onclick = (e) => { e.preventDefault(); smartRedirect(jellyfinDns, jellyfinIp); };
-            discover.onclick = (e) => { e.preventDefault(); smartRedirect(seerrDns, seerrIp); };
+            // --- TOGGLE LOGIC ---
+            let useDns = true; // Default to DNS/VPN mode
 
-            // Smooth scrolling for the Hero navigation buttons
+            document.getElementById('mode-dns').addEventListener('click', function() {
+                useDns = true;
+                this.classList.add('active');
+                document.getElementById('mode-ip').classList.remove('active');
+            });
+
+            document.getElementById('mode-ip').addEventListener('click', function() {
+                useDns = false;
+                this.classList.add('active');
+                document.getElementById('mode-dns').classList.remove('active');
+            });
+
+            // --- ROUTING LOGIC ---
+            src2.onclick = (e) => { 
+                e.preventDefault(); 
+                window.location.href = useDns ? jellyfinDns : jellyfinIp; 
+            };
+            discover.onclick = (e) => { 
+                e.preventDefault(); 
+                window.location.href = useDns ? seerrDns : seerrIp; 
+            };
+
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
                 });
             });
         });
-
-        // --- SMART ROUTING LOGIC ---
-        async function smartRedirect(primaryUrl, fallbackUrl) {
-            // Change cursor to indicate loading/checking
-            document.body.style.cursor = 'wait';
-            
-            try {
-                // Set a strict 1.5 second timeout
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 1500);
-
-                // Ping the primary URL (fetching a tiny file like favicon with cache-busting to bypass CORS)
-                await fetch(primaryUrl + '/favicon.ico?' + Date.now(), {
-                    mode: 'no-cors',
-                    signal: controller.signal
-                });
-
-                // If it connects before the timeout, clear the timer and go to DNS
-                clearTimeout(timeoutId);
-                document.body.style.cursor = 'default';
-                window.location.href = primaryUrl;
-
-            } catch (err) {
-                // If it times out or fails (DNS down), fallback to IP
-                console.warn("Primary DNS unreachable. Falling back to IP...", err);
-                document.body.style.cursor = 'default';
-                window.location.href = fallbackUrl;
-            }
-        }
     </script>
 </body>
 </html>
